@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary>
+	<item name="res:application.cfg.status" value="1" code="AppStatus">
+	</item>
+	<item name="res.application.cfg.type" value="2" code="AppType">
+	</item>
+</dictionary>
