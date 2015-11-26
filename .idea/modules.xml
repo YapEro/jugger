@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/jugger.iml" filepath="$PROJECT_DIR$/jugger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jugger.configuration/jugger.configuration.iml" filepath="$PROJECT_DIR$/jugger.configuration/jugger.configuration.iml" />
       <module fileurl="file://$PROJECT_DIR$/jugger.core/jugger.core.iml" filepath="$PROJECT_DIR$/jugger.core/jugger.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jugger.samples.crm/jugger.samples.crm.iml" filepath="$PROJECT_DIR$/jugger.samples.crm/jugger.samples.crm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jugger.webapp/jugger.webapp.iml" filepath="$PROJECT_DIR$/jugger.webapp/jugger.webapp.iml" />
     </modules>
   </component>
 </project>
