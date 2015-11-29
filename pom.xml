@@ -6,7 +6,18 @@
 
     <groupId>com.yzsoft</groupId>
     <artifactId>jugger</artifactId>
+    <packaging>pom</packaging>
     <version>1.0.0</version>
 
+    <properties>
+        <spring.version>4.1.4.RELEASE</spring.version>
+    </properties>
+    <modules>
+        <module>jugger.core</module>
+        <module>jugger.webapp</module>
+        <module>jugger.configuration</module>
+        <module>untitled</module>
+        <module>jugger.samples.crm</module>
+    </modules>
 
 </project>

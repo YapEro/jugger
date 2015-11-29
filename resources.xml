@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources>
-	<item name="application.cfg.status" cnValue="系统状态" enValue="Application Status" />
-	<item name="application.cfg.type" cnValue="系统类型" enValue="Application Type" />
-</resources>

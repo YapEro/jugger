@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary>
+	<default_conf submax=99 />
+	<items>
+		<item name="res:application.cfg.status" value="1" code="AppStatus">
+		</item>
+		<item name="res:application.cfg.type" value="2" code="AppType">
+		</item>
+		<item name="res:entityconfig.cfg.ctltype" value="3" code="ControlType">
+		</item>
+		<item name="res:propertyconfig.cfg.spantype" value="4" code="PropertySpanType">
+		</item>
+		<item name="res:apiservice.cfg.type" value="5" code="InterfaceType">
+		</item>
+		<item name="res:operationlog.cfg.type" value="6" code="OperationLogType">
+		</item>
+		<item name="res:datadictionary.cfg.type" value="7" code="DataDictType">
+		</item>
+		<item name="res:authassign.cfg.type" value="8" code="AuthOwnerType">
+		</item>
+		<item name="res:workflowinstance.cfg.wfstatus" value="9" code="WorkflowStatus">
+		</item>
+		<item name="res:workflowoperation.cfg.type" value="10" code="WorkflowOperationType">
+		</item>
+		<item name="res:users.cfg.gender" value="11" code="Gender">
+		</item>
+		<item name="res:users.cfg.type" value="12" code="UserType">
+		</item>
+		<item name="res:users.cfg.status" value="13" code="UserStatus">
+		</item>
+		<item name="res:uioperation.cfg.type" value="14" code="UIOperationType">
+		</item>
+		<item name="res:module.cfg.status" value="15" code="ModuleStatus">
+		</item>
+		<item name="res:Orgnization.cfg.type" value="16" code="OrgnizationType">
+		</item>
+		<item name="res:Role.cfg.type" value="17" code="RoleType">
+		</item>
+		<item name="res:Configuration.cfg.type" value="18" code="ConfigurationType">
+		</item>
+	</items>
+</dictionary>

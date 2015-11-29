@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<item name="application.cfg.status" cnValue="系统状态" enValue="Application Status" />
+	<item name="application.cfg.type" cnValue="系统类型" enValue="Application Type" />
+	<item name="entityconfig.cfg.ctltype" cnValue="控件类型" enValue="Control Type" />
+	<item name="propertyconfig.cfg.spantype" cnValue="属性宽度类型" enValue="Property spanspec Type" />
+	<item name="apiservice.cfg.type" cnValue="接口类型" enValue="Interface Type" />
+	<item name="operationlog.cfg.type" cnValue="操作日志类型" enValue="Operation Log Type" />
+	<item name="datadictionary.cfg.type" cnValue="数据字典类型" enValue="Data dictionary Type" />
+	<item name="authassign.cfg.type" cnValue="权限分配对象类型" enValue="Authority assignment Type" />
+	<item name="workflowinstance.cfg.wfstatus" cnValue="流程状态" enValue="Workflow status" />
+	<item name="workflowoperation.cfg.type" cnValue="流程操作类型" enValue="Workflow operation type" />
+	<item name="users.cfg.gender" cnValue="性别" enValue="Gender" />
+	<item name="users.cfg.type" cnValue="用户类型" enValue="User type" />
+	<item name="users.cfg.status" cnValue="用户状态" enValue="User status" />
+	<item name="uioperation.cfg.type" cnValue="操作类型" enValue="Operation type" />
+	<item name="module.cfg.status" cnValue="模块状态" enValue="Module status" />
+	<item name="Orgnization.cfg.type" cnValue="组织结构类型" enValue="Orgnization type" />
+	<item name="Role.cfg.type" cnValue="角色类型" enValue="Role type" />
+	<item name="Configuration.cfg.type" cnValue="系统配置类型" enValue="Configuration type" />
+</resources>
