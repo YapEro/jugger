@@ -24,6 +24,7 @@
         <processorPath useClasspath="true" />
         <module name="jugger.configuration" />
         <module name="jugger.core" />
+        <module name="jugger.samples.crm" />
         <module name="jugger.webapp" />
       </profile>
     </annotationProcessing>
@@ -31,6 +32,7 @@
       <module name="jugger" target="1.5" />
       <module name="jugger.configuration" target="1.5" />
       <module name="jugger.core" target="1.5" />
+      <module name="jugger.samples.crm" target="1.5" />
       <module name="jugger.webapp" target="1.5" />
     </bytecodeTargetLevel>
   </component>
