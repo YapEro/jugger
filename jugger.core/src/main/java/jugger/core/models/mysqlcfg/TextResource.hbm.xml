@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.TextResource" table="TextResource" schema="" catalog="juggerDB">
+        <id name="trSid" column="tr_sid"/>
+        <property name="trAppSid" column="tr_app_sid"/>
+        <property name="trName" column="tr_name"/>
+        <property name="trValue" column="tr_value"/>
+        <property name="trGroup" column="tr_group"/>
+        <property name="trDesc" column="tr_desc"/>
+        <many-to-one name="applicationByTrAppSid" class="jugger.core.models.Application">
+            <column name="tr_app_sid"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

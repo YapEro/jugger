@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.WorkflowComments" table="WorkflowComments" schema="" catalog="juggerDB">
+        <id name="wfcoSid" column="wfco_sid"/>
+        <property name="wfcoWfcSid" column="wfco_wfc_sid"/>
+        <property name="wfcoWfiSid" column="wfco_wfi_sid"/>
+        <property name="wfcoUser" column="wfco_user"/>
+        <property name="wfcoTime" column="wfco_time"/>
+        <property name="wfcoWfoSid" column="wfco_wfo_sid"/>
+        <property name="wfcoContent" column="wfco_content"/>
+        <property name="wfcoExt" column="wfco_ext"/>
+        <many-to-one name="workflowInstanceByWfcoWfiSid" class="jugger.core.models.WorkflowInstance">
+            <column name="wfco_wfi_sid" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

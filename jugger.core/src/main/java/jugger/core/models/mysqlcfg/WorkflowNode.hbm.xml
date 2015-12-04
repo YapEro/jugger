@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.WorkflowNode" table="WorkflowNode" schema="" catalog="juggerDB">
+        <id name="wfnSid" column="wfn_sid"/>
+        <property name="wfnName" column="wfn_name"/>
+        <property name="wfnTitle" column="wfn_title"/>
+        <property name="wfnIcon" column="wfn_icon"/>
+        <property name="wfnDictValue" column="wfn_dict_value"/>
+        <property name="wfnWfcSid" column="wfn_wfc_sid"/>
+        <property name="wfnEntity" column="wfn_entity"/>
+        <property name="wfnExt" column="wfn_ext"/>
+        <property name="wfnDesc" column="wfn_desc"/>
+        <many-to-one name="workflowConfigByWfnWfcSid" class="jugger.core.models.WorkflowConfig">
+            <column name="wfn_wfc_sid"/>
+        </many-to-one>
+        <set name="workflowOperationsByWfnSid" inverse="true">
+            <key>
+                <column name="wfo_des_node"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.WorkflowOperation"/>
+        </set>
+        <set name="workflowOperationsByWfnSid_0" inverse="true">
+            <key>
+                <column name="wfo_src_node"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.WorkflowOperation"/>
+        </set>
+    </class>
+</hibernate-mapping>

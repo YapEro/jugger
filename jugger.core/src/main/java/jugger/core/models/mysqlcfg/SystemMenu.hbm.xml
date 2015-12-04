@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.SystemMenu" table="SystemMenu" schema="" catalog="juggerDB">
+        <id name="smSid" column="sm_sid"/>
+        <property name="smAppSid" column="sm_app_sid"/>
+        <property name="smModuleSid" column="sm_module_sid"/>
+        <property name="smName" column="sm_name"/>
+        <property name="smTitle" column="sm_title"/>
+        <property name="smParent" column="sm_parent"/>
+        <property name="smView" column="sm_view"/>
+        <property name="smSort" column="sm_sort"/>
+        <property name="smIcon" column="sm_icon"/>
+        <property name="smFocusIcon" column="sm_focus_icon"/>
+        <property name="smDesc" column="sm_desc"/>
+        <many-to-one name="applicationBySmAppSid" class="jugger.core.models.Application">
+            <column name="sm_app_sid"/>
+        </many-to-one>
+        <many-to-one name="moduleBySmModuleSid" class="jugger.core.models.Module">
+            <column name="sm_module_sid"/>
+        </many-to-one>
+        <many-to-one name="systemMenuBySmParent" class="jugger.core.models.SystemMenu">
+            <column name="sm_parent"/>
+        </many-to-one>
+        <set name="systemMenusBySmSid" inverse="true">
+            <key>
+                <column name="sm_parent"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.SystemMenu"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.ViewService" table="ViewService" schema="" catalog="juggerDB">
+        <id name="vsSid" column="vs_sid"/>
+        <property name="vsName" column="vs_name"/>
+        <property name="vsFilePath" column="vs_file_path"/>
+        <property name="vsTitle" column="vs_title"/>
+        <property name="vsAppSid" column="vs_app_sid"/>
+        <property name="vsModuleSid" column="vs_module_sid"/>
+        <property name="vsDesc" column="vs_desc"/>
+        <many-to-one name="applicationByVsAppSid" class="jugger.core.models.Application">
+            <column name="vs_app_sid"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.Configuration" table="Configuration" schema="" catalog="juggerDB">
+        <id name="cfSid" column="cf_sid"/>
+        <property name="cfOwnerType" column="cf_owner_type"/>
+        <property name="cfOwnerSid" column="cf_owner_sid"/>
+        <property name="cfName" column="cf_name"/>
+        <property name="cfTitle" column="cf_title"/>
+        <property name="cfContent" column="cf_content"/>
+        <property name="cfGroup" column="cf_group"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.WorkflowInstance" table="WorkflowInstance" schema="" catalog="juggerDB">
+        <id name="wfiSid" column="wfi_sid"/>
+        <property name="wfiWfcSid" column="wfi_wfc_sid"/>
+        <property name="wfiEntityConfig" column="wfi_entity_config"/>
+        <property name="wfiEntitySid" column="wfi_entity_sid"/>
+        <property name="wfiEntityStatus" column="wfi_entity_status"/>
+        <property name="wfiInstanceStatus" column="wfi_instance_status"/>
+        <property name="wfiExt" column="wfi_ext"/>
+        <many-to-one name="workflowConfigByWfiWfcSid" class="jugger.core.models.WorkflowConfig">
+            <column name="wfi_wfc_sid"/>
+        </many-to-one>
+        <set name="workflowCommentsesByWfiSid" inverse="true">
+            <key>
+                <column name="wfco_wfi_sid" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.WorkflowComments"/>
+        </set>
+    </class>
+</hibernate-mapping>

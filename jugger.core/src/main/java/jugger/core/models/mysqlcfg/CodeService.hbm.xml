@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.CodeService" table="CodeService" schema="" catalog="juggerDB">
+        <id name="csSid" column="cs_sid"/>
+        <property name="csAppSid" column="cs_app_sid"/>
+        <property name="csModuleSid" column="cs_module_sid"/>
+        <property name="csName" column="cs_name"/>
+        <property name="csAnnotation" column="cs_annotation"/>
+        <property name="csFilePath" column="cs_file_path"/>
+        <property name="csPrjName" column="cs_prj_name"/>
+        <property name="csClass" column="cs_class"/>
+        <property name="csInterface" column="cs_interface"/>
+        <property name="csDesc" column="cs_desc"/>
+        <many-to-one name="applicationByCsAppSid" class="jugger.core.models.Application">
+            <column name="cs_app_sid"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.DataDictionary" table="DataDictionary" schema="" catalog="juggerDB">
+        <id name="ddSid" column="dd_sid"/>
+        <property name="ddAppSid" column="dd_app_sid"/>
+        <property name="ddName" column="dd_name"/>
+        <property name="ddValue" column="dd_value"/>
+        <property name="ddCode" column="dd_code"/>
+        <property name="ddParent" column="dd_parent"/>
+        <property name="ddSubMax" column="dd_sub_max"/>
+        <property name="ddType" column="dd_type"/>
+        <property name="ddIcon" column="dd_icon"/>
+        <property name="ddDesc" column="dd_desc"/>
+        <many-to-one name="applicationByDdAppSid" class="jugger.core.models.Application">
+            <column name="dd_app_sid"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

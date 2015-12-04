@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.OperationLog" table="OperationLog" schema="" catalog="juggerDB">
+        <id name="olSid" column="ol_sid"/>
+        <property name="olAppSid" column="ol_app_sid"/>
+        <property name="olUser" column="ol_user"/>
+        <property name="olTime" column="ol_time"/>
+        <property name="olType" column="ol_type"/>
+        <property name="olContent" column="ol_content"/>
+        <many-to-one name="applicationByOlAppSid" class="jugger.core.models.Application">
+            <column name="ol_app_sid"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

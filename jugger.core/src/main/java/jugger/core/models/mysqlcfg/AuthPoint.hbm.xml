@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.AuthPoint" table="AuthPoint" schema="" catalog="juggerDB">
+        <id name="apSid" column="ap_sid"/>
+        <property name="apName" column="ap_name"/>
+        <property name="apAppSid" column="ap_app_sid"/>
+        <property name="apModuleSid" column="ap_module_sid"/>
+        <property name="apExt" column="ap_ext"/>
+        <property name="apDesc" column="ap_desc"/>
+        <many-to-one name="applicationByApAppSid" class="jugger.core.models.Application">
+            <column name="ap_app_sid"/>
+        </many-to-one>
+        <set name="authAssignsByApSid" inverse="true">
+            <key>
+                <column name="aa_ap_sid"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.AuthAssign"/>
+        </set>
+        <set name="authDependenciesByApSid" inverse="true">
+            <key>
+                <column name="ad_ap_sid"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.AuthDependency"/>
+        </set>
+    </class>
+</hibernate-mapping>

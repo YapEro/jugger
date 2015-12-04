@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.Users" table="Users" schema="" catalog="juggerDB">
+        <id name="usrSid" column="usr_sid"/>
+        <property name="usrSno" column="usr_sno"/>
+        <property name="usrPwd" column="usr_pwd"/>
+        <property name="usrName" column="usr_name"/>
+        <property name="usrGender" column="usr_gender"/>
+        <property name="usrPhoto" column="usr_photo"/>
+        <property name="usrBirthday" column="usr_birthday"/>
+        <property name="usrOrg" column="usr_org"/>
+        <property name="usrType" column="usr_type"/>
+        <property name="usrStatus" column="usr_status"/>
+        <property name="usrEmail" column="usr_email"/>
+        <property name="usrPhone" column="usr_phone"/>
+        <property name="usrDomain" column="usr_domain"/>
+        <property name="usrSys" column="usr_sys"/>
+        <property name="usrExt" column="usr_ext"/>
+        <property name="usrDes" column="usr_des"/>
+        <many-to-one name="orgnizationByUsrOrg" class="jugger.core.models.Orgnization">
+            <column name="usr_org"/>
+        </many-to-one>
+        <set name="roleUserRefsByUsrSid" inverse="true">
+            <key>
+                <column name="rul_usr_sid" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.RoleUserRef"/>
+        </set>
+    </class>
+</hibernate-mapping>

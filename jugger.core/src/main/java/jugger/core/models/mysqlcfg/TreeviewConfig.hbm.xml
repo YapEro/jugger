@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.TreeviewConfig" table="TreeviewConfig" schema="" catalog="juggerDB">
+        <id name="tvcSid" column="tvc_sid"/>
+        <property name="tvcEcSid" column="tvc_ec_sid"/>
+        <property name="tvcEuSid" column="tvc_eu_sid"/>
+        <property name="tvcNodeEntity" column="tvc_node_entity"/>
+        <property name="tvcNodeValue" column="tvc_node_value"/>
+        <property name="tvcNodeTitle" column="tvc_node_title"/>
+        <property name="tvcParent" column="tvc_parent"/>
+        <property name="tvcNodeIcon" column="tvc_node_icon"/>
+        <property name="tvcLinkView" column="tvc_link_view"/>
+        <property name="tvcLinkParams" column="tvc_link_params"/>
+        <property name="tvcFilterProperty" column="tvc_filter_property"/>
+        <property name="tvcExtCondition" column="tvc_ext_condition"/>
+        <property name="tvcSort" column="tvc_sort"/>
+        <property name="tvcSelfRef" column="tvc_self_ref"/>
+        <property name="tvcInvalidMenus" column="tvc_invalid_menus"/>
+        <property name="tvcExtProperty" column="tvc_ext_property"/>
+        <property name="tvcDesc" column="tvc_desc"/>
+        <many-to-one name="entityUiByTvcEuSid" class="jugger.core.models.EntityUi">
+            <column name="tvc_eu_sid" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="treeviewConfigByTvcParent" class="jugger.core.models.TreeviewConfig">
+            <column name="tvc_parent"/>
+        </many-to-one>
+        <set name="treeviewConfigsByTvcSid" inverse="true">
+            <key>
+                <column name="tvc_parent"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.TreeviewConfig"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.Application" table="Application" schema="" catalog="juggerDB">
+        <id name="appSid" column="app_sid"/>
+        <property name="appSno" column="app_sno"/>
+        <property name="appName" column="app_name"/>
+        <property name="appDbConn" column="app_db_conn"/>
+        <property name="appStatus" column="app_status"/>
+        <property name="appType" column="app_type"/>
+        <property name="appPath" column="app_path"/>
+        <property name="appExt" column="app_ext"/>
+        <property name="appDesc" column="app_desc"/>
+        <set name="apiServicesByAppSid" inverse="true">
+            <key>
+                <column name="as_app_sid"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.ApiService"/>
+        </set>
+        <set name="authPointsByAppSid" inverse="true">
+            <key>
+                <column name="ap_app_sid"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.AuthPoint"/>
+        </set>
+        <set name="codeServicesByAppSid" inverse="true">
+            <key>
+                <column name="cs_app_sid"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.CodeService"/>
+        </set>
+        <set name="dataDictionariesByAppSid" inverse="true">
+            <key>
+                <column name="dd_app_sid"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.DataDictionary"/>
+        </set>
+        <set name="entityConfigsByAppSid" inverse="true">
+            <key>
+                <column name="ec_app_sid"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.EntityConfig"/>
+        </set>
+        <set name="modulesByAppSid" inverse="true">
+            <key>
+                <column name="md_app_sid"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.Module"/>
+        </set>
+        <set name="operationLogsByAppSid" inverse="true">
+            <key>
+                <column name="ol_app_sid"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.OperationLog"/>
+        </set>
+        <set name="rolesByAppSid" inverse="true">
+            <key>
+                <column name="rl_app_sid"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.Role"/>
+        </set>
+        <set name="systemLogsByAppSid" inverse="true">
+            <key>
+                <column name="sl_app_sid"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.SystemLog"/>
+        </set>
+        <set name="systemMenusByAppSid" inverse="true">
+            <key>
+                <column name="sm_app_sid"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.SystemMenu"/>
+        </set>
+        <set name="textResourcesByAppSid" inverse="true">
+            <key>
+                <column name="tr_app_sid"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.TextResource"/>
+        </set>
+        <set name="viewServicesByAppSid" inverse="true">
+            <key>
+                <column name="vs_app_sid"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.ViewService"/>
+        </set>
+        <set name="workflowConfigsByAppSid" inverse="true">
+            <key>
+                <column name="wfc_app_sid"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.WorkflowConfig"/>
+        </set>
+    </class>
+</hibernate-mapping>

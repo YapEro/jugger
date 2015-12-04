@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.RoleUserRef" table="RoleUserRef" schema="" catalog="juggerDB">
+        <id name="rurSid" column="rur_sid"/>
+        <property name="rurRlSid" column="rur_rl_sid"/>
+        <property name="rulUsrSid" column="rul_usr_sid"/>
+        <property name="rulOrgSid" column="rul_org_sid"/>
+        <many-to-one name="orgnizationByRulOrgSid" class="jugger.core.models.Orgnization">
+            <column name="rul_org_sid" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="roleByRurRlSid" class="jugger.core.models.Role">
+            <column name="rur_rl_sid" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="usersByRulUsrSid" class="jugger.core.models.Users">
+            <column name="rul_usr_sid" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

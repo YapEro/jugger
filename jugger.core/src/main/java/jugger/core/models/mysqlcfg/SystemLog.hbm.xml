@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.SystemLog" table="SystemLog" schema="" catalog="juggerDB">
+        <id name="slSid" column="sl_sid"/>
+        <property name="slAppSid" column="sl_app_sid"/>
+        <property name="slUser" column="sl_user"/>
+        <property name="slClass" column="sl_class"/>
+        <property name="slMethod" column="sl_method"/>
+        <property name="slTime" column="sl_time"/>
+        <property name="slLevel" column="sl_level"/>
+        <property name="slContent" column="sl_content"/>
+        <many-to-one name="applicationBySlAppSid" class="jugger.core.models.Application">
+            <column name="sl_app_sid"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

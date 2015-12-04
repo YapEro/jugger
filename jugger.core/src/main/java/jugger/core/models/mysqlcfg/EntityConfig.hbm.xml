@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.EntityConfig" table="EntityConfig" schema="" catalog="juggerDB">
+        <id name="ecSid" column="ec_sid"/>
+        <property name="ecAppSid" column="ec_app_sid"/>
+        <property name="ecModuleSid" column="ec_module_sid"/>
+        <property name="ecName" column="ec_name"/>
+        <property name="ecClass" column="ec_class"/>
+        <property name="ecSchema" column="ec_schema"/>
+        <property name="ecCache" column="ec_cache"/>
+        <property name="ecExtCol" column="ec_ext_col"/>
+        <property name="ecExtValue" column="ec_ext_value"/>
+        <property name="ecParent" column="ec_parent"/>
+        <property name="ecStatusCol" column="ec_status_col"/>
+        <property name="ecStatusValue" column="ec_status_value"/>
+        <property name="ecDelCol" column="ec_del_col"/>
+        <property name="ecTypeCol" column="ec_type_col"/>
+        <property name="ecPkCol" column="ec_PK_col"/>
+        <property name="ecColAmount" column="ec_col_amount"/>
+        <property name="ecDesc" column="ec_desc"/>
+        <many-to-one name="applicationByEcAppSid" class="jugger.core.models.Application">
+            <column name="ec_app_sid"/>
+        </many-to-one>
+        <many-to-one name="moduleByEcModuleSid" class="jugger.core.models.Module">
+            <column name="ec_module_sid"/>
+        </many-to-one>
+        <set name="entityUisByEcSid" inverse="true">
+            <key>
+                <column name="eu_ec_sid" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.EntityUi"/>
+        </set>
+        <set name="propertyConfigsByEcSid" inverse="true">
+            <key>
+                <column name="pc_ec_sid" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.PropertyConfig"/>
+        </set>
+        <set name="workflowConfigsByEcSid" inverse="true">
+            <key>
+                <column name="wfc_entity"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.WorkflowConfig"/>
+        </set>
+    </class>
+</hibernate-mapping>

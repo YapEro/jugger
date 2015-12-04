@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.Orgnization" table="Orgnization" schema="" catalog="juggerDB">
+        <id name="orgSid" column="org_sid"/>
+        <property name="orgName" column="org_name"/>
+        <property name="orgParent" column="org_parent"/>
+        <property name="orgLevel" column="org_level"/>
+        <property name="orgPath" column="org_path"/>
+        <property name="orgType" column="org_type"/>
+        <property name="orgCharge" column="org_charge"/>
+        <property name="orgExt" column="org_ext"/>
+        <property name="orgDesc" column="org_desc"/>
+        <set name="roleUserRefsByOrgSid" inverse="true">
+            <key>
+                <column name="rul_org_sid" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.RoleUserRef"/>
+        </set>
+        <set name="usersesByOrgSid" inverse="true">
+            <key>
+                <column name="usr_org"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.Users"/>
+        </set>
+    </class>
+</hibernate-mapping>

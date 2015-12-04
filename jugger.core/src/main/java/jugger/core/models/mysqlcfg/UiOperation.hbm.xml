@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.UiOperation" table="UIOperation" schema="" catalog="juggerDB">
+        <id name="uoSid" column="uo_sid"/>
+        <property name="uoEcSid" column="uo_ec_sid"/>
+        <property name="uoEuSid" column="uo_eu_sid"/>
+        <property name="uoType" column="uo_type"/>
+        <property name="uoName" column="uo_name"/>
+        <property name="uoTitle" column="uo_title"/>
+        <property name="uoIcon" column="uo_icon"/>
+        <property name="uoSort" column="uo_sort"/>
+        <property name="uoView" column="uo_view"/>
+        <property name="uoParam" column="uo_param"/>
+        <property name="uoAction" column="uo_action"/>
+        <many-to-one name="entityUiByUoEuSid" class="jugger.core.models.EntityUi">
+            <column name="uo_eu_sid"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

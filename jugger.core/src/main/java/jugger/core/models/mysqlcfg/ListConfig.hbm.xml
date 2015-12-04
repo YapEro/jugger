@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.ListConfig" table="ListConfig" schema="" catalog="juggerDB">
+        <id name="lcSid" column="lc_sid"/>
+        <property name="lcEcSid" column="lc_ec_sid"/>
+        <property name="lcEuSid" column="lc_eu_sid"/>
+        <property name="lcPcSid" column="lc_pc_sid"/>
+        <property name="lcWidth" column="lc_width"/>
+        <property name="lcWidthUnit" column="lc_width_unit"/>
+        <property name="lcVisibility" column="lc_visibility"/>
+        <property name="lcSort" column="lc_sort"/>
+        <property name="lcFilterable" column="lc_filterable"/>
+        <property name="lcGroupable" column="lc_groupable"/>
+        <property name="lcSortable" column="lc_sortable"/>
+        <many-to-one name="entityUiByLcEuSid" class="jugger.core.models.EntityUi">
+            <column name="lc_eu_sid" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="propertyConfigByLcPcSid" class="jugger.core.models.PropertyConfig">
+            <column name="lc_pc_sid" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.WorkflowOperation" table="WorkflowOperation" schema="" catalog="juggerDB">
+        <id name="wfoSid" column="wfo_sid"/>
+        <property name="wfoWfcSid" column="wfo_wfc_sid"/>
+        <property name="wfoName" column="wfo_name"/>
+        <property name="wfoIcon" column="wfo_icon"/>
+        <property name="wfoTitle" column="wfo_title"/>
+        <property name="wfoEntity" column="wfo_entity"/>
+        <property name="wfoSrcNode" column="wfo_src_node"/>
+        <property name="wfoDesNode" column="wfo_des_node"/>
+        <property name="wfoType" column="wfo_type"/>
+        <property name="wfoPrevEvent" column="wfo_prev_event"/>
+        <property name="wfoNextEvent" column="wfo_next_event"/>
+        <property name="wfoRollback" column="wfo_rollback"/>
+        <property name="wfoMailTemplate" column="wfo_mail_template"/>
+        <property name="wfoExt" column="wfo_ext"/>
+        <property name="wfoDesc" column="wfo_desc"/>
+        <many-to-one name="workflowConfigByWfoWfcSid" class="jugger.core.models.WorkflowConfig">
+            <column name="wfo_wfc_sid"/>
+        </many-to-one>
+        <many-to-one name="workflowNodeByWfoDesNode" class="jugger.core.models.WorkflowNode">
+            <column name="wfo_des_node"/>
+        </many-to-one>
+        <many-to-one name="workflowNodeByWfoSrcNode" class="jugger.core.models.WorkflowNode">
+            <column name="wfo_src_node"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

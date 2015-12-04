@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.EntityUi" table="EntityUI" schema="" catalog="juggerDB">
+        <id name="euSid" column="eu_sid"/>
+        <property name="euEcSid" column="eu_ec_sid"/>
+        <property name="euName" column="eu_name"/>
+        <property name="euType" column="eu_type"/>
+        <property name="euReadonly" column="eu_readonly"/>
+        <property name="euTitle" column="eu_title"/>
+        <property name="euDesc" column="eu_desc"/>
+        <many-to-one name="entityConfigByEuEcSid" class="jugger.core.models.EntityConfig">
+            <column name="eu_ec_sid" not-null="true"/>
+        </many-to-one>
+        <set name="compositeUisByEuSid" inverse="true">
+            <key>
+                <column name="cu_eu_sid" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.CompositeUi"/>
+        </set>
+        <set name="formConfigsByEuSid" inverse="true">
+            <key>
+                <column name="fc_eu_sid" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.FormConfig"/>
+        </set>
+        <set name="listConfigsByEuSid" inverse="true">
+            <key>
+                <column name="lc_eu_sid" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.ListConfig"/>
+        </set>
+        <set name="treeviewConfigsByEuSid" inverse="true">
+            <key>
+                <column name="tvc_eu_sid" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.TreeviewConfig"/>
+        </set>
+        <set name="uiOperationsByEuSid" inverse="true">
+            <key>
+                <column name="uo_eu_sid"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.UiOperation"/>
+        </set>
+    </class>
+</hibernate-mapping>

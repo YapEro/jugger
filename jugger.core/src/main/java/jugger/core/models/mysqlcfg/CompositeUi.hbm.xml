@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.CompositeUi" table="CompositeUI" schema="" catalog="juggerDB">
+        <id name="cuSid" column="cu_sid"/>
+        <property name="cuEcSid" column="cu_ec_sid"/>
+        <property name="cuEuSid" column="cu_eu_sid"/>
+        <property name="cuView" column="cu_view"/>
+        <property name="cuIsMain" column="cu_is_main"/>
+        <property name="cuParams" column="cu_params"/>
+        <property name="cuIcon" column="cu_icon"/>
+        <property name="cuSort" column="cu_sort"/>
+        <property name="cuTitle" column="cu_title"/>
+        <property name="cuDesc" column="cu_desc"/>
+        <many-to-one name="entityUiByCuEuSid" class="jugger.core.models.EntityUi">
+            <column name="cu_eu_sid" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

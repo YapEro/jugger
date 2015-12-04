@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.FormConfig" table="FormConfig" schema="" catalog="juggerDB">
+        <id name="fcSid" column="fc_sid"/>
+        <property name="fcEcSid" column="fc_ec_sid"/>
+        <property name="fcEuSid" column="fc_eu_sid"/>
+        <property name="fcPcSid" column="fc_pc_sid"/>
+        <property name="fcVisibility" column="fc_visibility"/>
+        <property name="fcReadonly" column="fc_readonly"/>
+        <property name="fcTemplate" column="fc_template"/>
+        <property name="fcDepsSid" column="fc_deps_sid"/>
+        <property name="fcDepsValue" column="fc_deps_value"/>
+        <property name="fcSort" column="fc_sort"/>
+        <many-to-one name="entityUiByFcEuSid" class="jugger.core.models.EntityUi">
+            <column name="fc_eu_sid" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="propertyConfigByFcPcSid" class="jugger.core.models.PropertyConfig">
+            <column name="fc_pc_sid" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

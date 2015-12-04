@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="jugger.core.models.PropertyConfig" table="PropertyConfig" schema="" catalog="juggerDB">
+        <id name="pcSid" column="pc_sid"/>
+        <property name="pcEcSid" column="pc_ec_sid"/>
+        <property name="pcColName" column="pc_col_name"/>
+        <property name="pcName" column="pc_name"/>
+        <property name="pcLabel" column="pc_label"/>
+        <property name="pcDataType" column="pc_data_type"/>
+        <property name="pcIsRequire" column="pc_is_require"/>
+        <property name="pcIsPk" column="pc_is_pk"/>
+        <property name="pcIsName" column="pc_is_name"/>
+        <property name="pcIsType" column="pc_is_type"/>
+        <property name="pcIsRicheditor" column="pc_is_richeditor"/>
+        <property name="pcWidthType" column="pc_width_type"/>
+        <property name="pcLength" column="pc_length"/>
+        <property name="pcRefEntity" column="pc_ref_entity"/>
+        <property name="pcRefName" column="pc_ref_name"/>
+        <property name="pcRefSelect" column="pc_ref_select"/>
+        <property name="pcFormat" column="pc_format"/>
+        <property name="pcWartermark" column="pc_wartermark"/>
+        <property name="pcValidateRegx" column="pc_validate_regx"/>
+        <property name="pcEditTemplate" column="pc_edit_template"/>
+        <property name="pcViewTemplate" column="pc_view_template"/>
+        <property name="pcDictionaryValue" column="pc_dictionary_value"/>
+        <property name="pcExt" column="pc_ext"/>
+        <property name="pcDesc" column="pc_desc"/>
+        <many-to-one name="entityConfigByPcEcSid" class="jugger.core.models.EntityConfig">
+            <column name="pc_ec_sid" not-null="true"/>
+        </many-to-one>
+        <set name="formConfigsByPcSid" inverse="true">
+            <key>
+                <column name="fc_pc_sid" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.FormConfig"/>
+        </set>
+        <set name="listConfigsByPcSid" inverse="true">
+            <key>
+                <column name="lc_pc_sid" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="jugger.core.models.ListConfig"/>
+        </set>
+    </class>
+</hibernate-mapping>
